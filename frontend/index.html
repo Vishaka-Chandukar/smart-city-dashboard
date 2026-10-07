@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart City Dashboard</title>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Google Fonts for clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="top-header">
+    <div class="header-brand">
+      <div class="brand-icon">🏛️</div>
+      <div>
+        <h1 class="brand-title">Smart City Dashboard</h1>
+        <p class="brand-subtitle">Hubballi, Karnataka — Urban Operational Intelligence (Simulated Prototype)</p>
+      </div>
+    </div>
+
+    <!-- GLOBAL FILTER CONTROLS -->
+    <div class="header-controls">
+      <!-- Area Selector -->
+      <div class="control-group">
+        <label for="zone-select">Area / Locality:</label>
+        <select id="zone-select" class="form-select">
+          <option value="Hubballi" selected>Hubballi</option>
+          <option value="Vidyanagar">Vidyanagar</option>
+          <option value="Gokul Road">Gokul Road</option>
+          <option value="Keshwapur">Keshwapur</option>
+          <option value="Unkal">Unkal</option>
+        </select>
+      </div>
+
+      <!-- Time Range Selector -->
+      <div class="control-group">
+        <label for="time-select">Time Range:</label>
+        <select id="time-select" class="form-select">
+          <option value="Today" selected>Today</option>
+          <option value="Yesterday">Yesterday</option>
+          <option value="Last 7 Days">Last 7 Days</option>
+          <option value="Last 30 Days">Last 30 Days</option>
+        </select>
+      </div>
+
+      <!-- Backend Connection Status -->
+      <div class="status-badge" id="backend-status">
+        <span class="status-dot"></span>
+        <span id="backend-status-text">Backend: Connecting...</span>
+      </div>
+
+      <!-- Toggle AI Panel Button -->
+      <button id="ai-toggle-btn" class="btn btn-outline" title="Toggle AI Assistant Panel">
+        🤖 AI Assistant
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APP LAYOUT (SIDEBAR + CONTENT + AI DRAWER) -->
+  <div class="app-container">
+    
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
+      <div class="sidebar-section-title">CITY MODULES</div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="overview">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">Overview</span>
+        </button>
+        <button class="nav-item" data-view="traffic">
+          <span class="nav-icon">🚗</span>
+          <span class="nav-label">Traffic</span>
+        </button>
+        <button class="nav-item" data-view="electricity">
+          <span class="nav-icon">⚡</span>
+          <span class="nav-label">Electricity</span>
+        </button>
+        <button class="nav-item" data-view="pollution">
+          <span class="nav-icon">🌿</span>
+          <span class="nav-label">Pollution</span>
+        </button>
+        <button class="nav-item" data-view="water">
+          <span class="nav-icon">💧</span>
+          <span class="nav-label">Water</span>
+        </button>
+        <button class="nav-item" data-view="alerts">
+          <span class="nav-icon">🔔</span>
+          <span class="nav-label">Alerts</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-info">
+          <small>Hubballi, Karnataka — v1.0</small>
+          <small>College Hackathon (Simulated Data)</small>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT AREA -->
+    <main class="content-area">
+      
+      <!-- VIEW TITLE BAR -->
+      <section class="view-header">
+        <div>
+          <h2 id="view-title">City Overview</h2>
+          <p id="view-description">High-level summary across Traffic, Electricity, Pollution, and Water modules.</p>
+        </div>
+        <div class="current-context-tag" id="current-context-tag">
+          Context: <strong>Hubballi</strong> | <strong>Today</strong>
+          <span class="loading-indicator" id="loading-indicator" style="display: none;">
+            <span class="spinner"></span> Loading...
+          </span>
+        </div>
+      </section>
+
+      <!-- ERROR BANNER CONTAINER -->
+      <div id="error-banner-container" style="display: none;"></div>
+
+      <!-- KPI CARDS GRID -->
+      <section class="kpi-grid" id="kpi-grid">
+        <!-- Rendered dynamically by app.js -->
+      </section>
+
+      <!-- CHARTS SECTION -->
+      <section class="charts-grid">
+        <!-- Main Chart Card -->
+        <div class="card chart-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title" id="chart-title">Activity Trend</h3>
+              <p class="card-subtitle" id="chart-subtitle">Real-time performance metrics plotted for current timeframe</p>
+            </div>
+            <div class="chart-controls">
+              <span class="badge badge-light" id="chart-badge">Live API Data</span>
+            </div>
+          </div>
+          <div class="card-body chart-body">
+            <canvas id="mainChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Secondary Widget / Area Breakdown Card -->
+        <div class="card comparison-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title" id="secondary-title">Localities Summary</h3>
+              <p class="card-subtitle" id="secondary-subtitle">Performance distribution across Hubballi areas</p>
+            </div>
+          </div>
+          <div class="card-body" id="secondary-body">
+            <div class="zone-list" id="zone-breakdown-list">
+              <!-- Rendered dynamically by app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALERTS SECTION -->
+      <section class="card alerts-card">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">Active Anomaly & System Alerts</h3>
+            <p class="card-subtitle">Automated threshold warnings detected across municipal systems</p>
+          </div>
+          <span class="badge badge-danger" id="alert-count-badge">2 Critical</span>
+        </div>
+        <div class="card-body">
+          <div class="alerts-list" id="alerts-container">
+            <!-- Alert Item 1 -->
+            <div class="alert-item alert-high">
+              <div class="alert-icon">⚡</div>
+              <div class="alert-content">
+                <div class="alert-header-row">
+                  <span class="alert-title">Power Demand Spike</span>
+                  <span class="alert-time">Today, 14:30</span>
+                </div>
+                <p class="alert-message">Gokul Road electricity demand exceeded baseline by 28% during peak operating hours.</p>
+                <div class="alert-meta">
+                  <span class="badge badge-danger">High Severity</span>
+                  <span class="badge badge-light">Gokul Road</span>
+                  <span class="badge badge-light">Electricity</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alert Item 2 -->
+            <div class="alert-item alert-medium">
+              <div class="alert-icon">🚗</div>
+              <div class="alert-content">
+                <div class="alert-header-row">
+                  <span class="alert-title">Heavy Traffic Congestion</span>
+                  <span class="alert-time">Today, 17:15</span>
+                </div>
+                <p class="alert-message">Vidyanagar main corridor average transit speed dropped below 18 km/h during peak traffic hours.</p>
+                <div class="alert-meta">
+                  <span class="badge badge-warning">Medium Severity</span>
+                  <span class="badge badge-light">Vidyanagar</span>
+                  <span class="badge badge-light">Traffic</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- AI ASSISTANT PANEL -->
+    <aside class="ai-panel" id="ai-panel">
+      <div class="ai-header">
+        <div class="ai-title-wrap">
+          <span class="ai-robot-icon">🤖</span>
+          <div>
+            <h3 class="ai-title">Context-Aware AI Assistant</h3>
+            <span class="badge badge-primary">Gemini Connected</span>
+          </div>
+        </div>
+        <button id="ai-close-btn" class="btn-icon" title="Close Panel">✕</button>
+      </div>
+
+      <!-- Current Context Summary Box -->
+      <div class="ai-context-box">
+        <div class="context-label">CURRENT APPLICATION CONTEXT:</div>
+        <div class="context-tags">
+          <span class="context-tag" id="ai-ctx-tab">Tab: Overview</span>
+          <span class="context-tag" id="ai-ctx-zone">Area: Hubballi</span>
+          <span class="context-tag" id="ai-ctx-time">Time: Today</span>
+        </div>
+      </div>
+
+      <!-- Chat Messages Area -->
+      <div class="ai-chat-messages" id="ai-chat-messages">
+        <div class="ai-message assistant-message">
+          <div class="message-sender">Assistant</div>
+          <div class="message-bubble">
+            Hello! I am your context-aware Smart City Assistant for Hubballi, Karnataka. Ask me any question about the current operational metrics, anomalies, or active system alerts.
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="ai-input-area">
+        <input 
+          type="text" 
+          id="ai-user-input" 
+          class="form-input" 
+          placeholder="Ask a question about the current city data..." 
+        >
+        <button id="ai-send-btn" class="btn btn-primary">
+          Send
+        </button>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/contextManager.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

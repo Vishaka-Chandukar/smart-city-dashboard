@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+package-lock.json.backup
+
+# Environment variables & secrets (MUST NEVER BE COMMITTED)
+.env
+backend/.env
+*.env.local
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

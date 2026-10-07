@@ -1,0 +1,818 @@
+{
+  "zones": [
+    { "id": "Hubballi", "name": "Hubballi" },
+    { "id": "Vidyanagar", "name": "Vidyanagar" },
+    { "id": "Gokul Road", "name": "Gokul Road" },
+    { "id": "Keshwapur", "name": "Keshwapur" },
+    { "id": "Unkal", "name": "Unkal" }
+  ],
+  "timeRanges": ["Today", "Yesterday", "Last 7 Days", "Last 30 Days"],
+  "alerts": [
+    {
+      "id": "ALT-01",
+      "module": "electricity",
+      "zone": "Gokul Road",
+      "severity": "high",
+      "title": "Power Demand Spike",
+      "message": "Gokul Road electricity demand exceeded baseline by 28% during peak operating hours.",
+      "timestamp": "Today, 14:30"
+    },
+    {
+      "id": "ALT-02",
+      "module": "traffic",
+      "zone": "Vidyanagar",
+      "severity": "medium",
+      "title": "Heavy Traffic Congestion",
+      "message": "Vidyanagar main corridor average transit speed dropped below 18 km/h during peak traffic hours.",
+      "timestamp": "Today, 17:15"
+    },
+    {
+      "id": "ALT-03",
+      "module": "pollution",
+      "zone": "Gokul Road",
+      "severity": "high",
+      "title": "Elevated AQI Warning",
+      "message": "AQI reached 152 (Unhealthy) due to elevated PM2.5 concentrations in Gokul Road.",
+      "timestamp": "Today, 12:00"
+    },
+    {
+      "id": "ALT-04",
+      "module": "water",
+      "zone": "Keshwapur",
+      "severity": "low",
+      "title": "Distribution Pressure Drop",
+      "message": "Distribution pipeline pressure dropped slightly to 41 PSI in Keshwapur Sector 4.",
+      "timestamp": "Today, 08:45"
+    }
+  ],
+  "metrics": {
+    "traffic": {
+      "Hubballi": {
+        "Today": {
+          "kpi": { "congestion": 52, "avgSpeed": 34, "vehicleCount": 48200 },
+          "baseline": { "congestion": 45, "avgSpeed": 38, "vehicleCount": 44000 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [15, 12, 68, 48, 74, 52]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "congestion": 47, "avgSpeed": 36, "vehicleCount": 45100 },
+          "baseline": { "congestion": 45, "avgSpeed": 38, "vehicleCount": 44000 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [14, 11, 62, 45, 69, 47]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "congestion": 48, "avgSpeed": 35, "vehicleCount": 312000 },
+          "baseline": { "congestion": 46, "avgSpeed": 36, "vehicleCount": 305000 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Average Congestion (%)",
+            "values": [50, 52, 49, 54, 58, 38, 35]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "congestion": 46, "avgSpeed": 37, "vehicleCount": 1340000 },
+          "baseline": { "congestion": 45, "avgSpeed": 38, "vehicleCount": 1300000 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Avg Congestion (%)",
+            "values": [44, 47, 48, 45]
+          }
+        }
+      },
+      "Vidyanagar": {
+        "Today": {
+          "kpi": { "congestion": 71, "avgSpeed": 21, "vehicleCount": 19400 },
+          "baseline": { "congestion": 58, "avgSpeed": 28, "vehicleCount": 16000 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [20, 15, 82, 65, 88, 71]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "congestion": 62, "avgSpeed": 25, "vehicleCount": 17500 },
+          "baseline": { "congestion": 58, "avgSpeed": 28, "vehicleCount": 16000 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [18, 14, 76, 58, 80, 62]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "congestion": 64, "avgSpeed": 24, "vehicleCount": 124000 },
+          "baseline": { "congestion": 60, "avgSpeed": 27, "vehicleCount": 118000 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Average Congestion (%)",
+            "values": [66, 68, 65, 71, 75, 52, 48]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "congestion": 61, "avgSpeed": 26, "vehicleCount": 510000 },
+          "baseline": { "congestion": 59, "avgSpeed": 27, "vehicleCount": 490000 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Avg Congestion (%)",
+            "values": [59, 62, 63, 60]
+          }
+        }
+      },
+      "Gokul Road": {
+        "Today": {
+          "kpi": { "congestion": 55, "avgSpeed": 31, "vehicleCount": 11200 },
+          "baseline": { "congestion": 48, "avgSpeed": 35, "vehicleCount": 10500 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [16, 22, 64, 52, 70, 55]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "congestion": 50, "avgSpeed": 33, "vehicleCount": 10800 },
+          "baseline": { "congestion": 48, "avgSpeed": 35, "vehicleCount": 10500 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [15, 20, 58, 48, 65, 50]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "congestion": 51, "avgSpeed": 33, "vehicleCount": 73000 },
+          "baseline": { "congestion": 49, "avgSpeed": 34, "vehicleCount": 71000 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Average Congestion (%)",
+            "values": [53, 54, 52, 55, 57, 42, 38]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "congestion": 49, "avgSpeed": 34, "vehicleCount": 315000 },
+          "baseline": { "congestion": 48, "avgSpeed": 35, "vehicleCount": 310000 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Avg Congestion (%)",
+            "values": [47, 50, 51, 48]
+          }
+        }
+      },
+      "Keshwapur": {
+        "Today": {
+          "kpi": { "congestion": 42, "avgSpeed": 41, "vehicleCount": 11800 },
+          "baseline": { "congestion": 40, "avgSpeed": 42, "vehicleCount": 11500 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [10, 8, 56, 32, 60, 42]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "congestion": 39, "avgSpeed": 43, "vehicleCount": 11200 },
+          "baseline": { "congestion": 40, "avgSpeed": 42, "vehicleCount": 11500 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [9, 7, 52, 30, 57, 39]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "congestion": 40, "avgSpeed": 42, "vehicleCount": 79000 },
+          "baseline": { "congestion": 40, "avgSpeed": 42, "vehicleCount": 78000 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Average Congestion (%)",
+            "values": [41, 42, 40, 43, 46, 34, 32]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "congestion": 39, "avgSpeed": 43, "vehicleCount": 340000 },
+          "baseline": { "congestion": 40, "avgSpeed": 42, "vehicleCount": 338000 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Avg Congestion (%)",
+            "values": [38, 40, 41, 39]
+          }
+        }
+      },
+      "Unkal": {
+        "Today": {
+          "kpi": { "congestion": 26, "avgSpeed": 52, "vehicleCount": 5800 },
+          "baseline": { "congestion": 25, "avgSpeed": 53, "vehicleCount": 5700 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [6, 5, 34, 22, 38, 26]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "congestion": 24, "avgSpeed": 54, "vehicleCount": 5600 },
+          "baseline": { "congestion": 25, "avgSpeed": 53, "vehicleCount": 5700 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Congestion (%)",
+            "values": [5, 4, 31, 20, 35, 24]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "congestion": 25, "avgSpeed": 53, "vehicleCount": 38000 },
+          "baseline": { "congestion": 25, "avgSpeed": 53, "vehicleCount": 38000 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Average Congestion (%)",
+            "values": [26, 27, 25, 26, 28, 21, 20]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "congestion": 24, "avgSpeed": 54, "vehicleCount": 162000 },
+          "baseline": { "congestion": 25, "avgSpeed": 53, "vehicleCount": 163000 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Avg Congestion (%)",
+            "values": [23, 25, 25, 24]
+          }
+        }
+      }
+    },
+    "electricity": {
+      "Hubballi": {
+        "Today": {
+          "kpi": { "consumption": 4350, "peakDemand": 420, "gridLoad": 76 },
+          "baseline": { "consumption": 3800, "peakDemand": 370, "gridLoad": 68 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [210, 190, 340, 395, 420, 380]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 3950, "peakDemand": 380, "gridLoad": 70 },
+          "baseline": { "consumption": 3800, "peakDemand": 370, "gridLoad": 68 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [200, 185, 320, 370, 380, 350]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 27400, "peakDemand": 420, "gridLoad": 71 },
+          "baseline": { "consumption": 26600, "peakDemand": 390, "gridLoad": 69 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (MWh)",
+            "values": [3850, 3920, 3980, 4100, 4350, 3650, 3550]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 116000, "peakDemand": 430, "gridLoad": 70 },
+          "baseline": { "consumption": 114000, "peakDemand": 400, "gridLoad": 68 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (MWh)",
+            "values": [28200, 29100, 29400, 29300]
+          }
+        }
+      },
+      "Vidyanagar": {
+        "Today": {
+          "kpi": { "consumption": 1280, "peakDemand": 135, "gridLoad": 78 },
+          "baseline": { "consumption": 1150, "peakDemand": 120, "gridLoad": 70 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [55, 50, 110, 130, 135, 105]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 1180, "peakDemand": 122, "gridLoad": 71 },
+          "baseline": { "consumption": 1150, "peakDemand": 120, "gridLoad": 70 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [52, 48, 105, 118, 122, 98]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 8200, "peakDemand": 135, "gridLoad": 73 },
+          "baseline": { "consumption": 8050, "peakDemand": 125, "gridLoad": 71 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (MWh)",
+            "values": [1160, 1190, 1210, 1240, 1280, 1080, 1040]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 34800, "peakDemand": 138, "gridLoad": 72 },
+          "baseline": { "consumption": 34500, "peakDemand": 128, "gridLoad": 70 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (MWh)",
+            "values": [8500, 8750, 8800, 8750]
+          }
+        }
+      },
+      "Gokul Road": {
+        "Today": {
+          "kpi": { "consumption": 1720, "peakDemand": 182, "gridLoad": 89 },
+          "baseline": { "consumption": 1340, "peakDemand": 142, "gridLoad": 72 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [90, 85, 155, 178, 182, 160]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 1410, "peakDemand": 148, "gridLoad": 74 },
+          "baseline": { "consumption": 1340, "peakDemand": 142, "gridLoad": 72 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [85, 80, 138, 145, 148, 135]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 10200, "peakDemand": 182, "gridLoad": 78 },
+          "baseline": { "consumption": 9380, "peakDemand": 145, "gridLoad": 73 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (MWh)",
+            "values": [1360, 1390, 1420, 1450, 1720, 1440, 1420]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 41500, "peakDemand": 185, "gridLoad": 75 },
+          "baseline": { "consumption": 40200, "peakDemand": 150, "gridLoad": 72 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (MWh)",
+            "values": [9900, 10200, 10600, 10800]
+          }
+        }
+      },
+      "Keshwapur": {
+        "Today": {
+          "kpi": { "consumption": 920, "peakDemand": 88, "gridLoad": 65 },
+          "baseline": { "consumption": 890, "peakDemand": 85, "gridLoad": 63 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [48, 42, 65, 62, 75, 88]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 900, "peakDemand": 86, "gridLoad": 64 },
+          "baseline": { "consumption": 890, "peakDemand": 85, "gridLoad": 63 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [47, 41, 64, 60, 72, 86]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 6350, "peakDemand": 88, "gridLoad": 64 },
+          "baseline": { "consumption": 6230, "peakDemand": 86, "gridLoad": 63 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (MWh)",
+            "values": [890, 905, 910, 920, 920, 900, 905]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 27200, "peakDemand": 90, "gridLoad": 64 },
+          "baseline": { "consumption": 26800, "peakDemand": 88, "gridLoad": 63 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (MWh)",
+            "values": [6700, 6800, 6850, 6850]
+          }
+        }
+      },
+      "Unkal": {
+        "Today": {
+          "kpi": { "consumption": 430, "peakDemand": 42, "gridLoad": 48 },
+          "baseline": { "consumption": 420, "peakDemand": 40, "gridLoad": 47 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [22, 20, 32, 28, 35, 42]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 420, "peakDemand": 41, "gridLoad": 47 },
+          "baseline": { "consumption": 420, "peakDemand": 40, "gridLoad": 47 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Power Demand (MW)",
+            "values": [21, 19, 31, 27, 34, 41]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 2980, "peakDemand": 43, "gridLoad": 48 },
+          "baseline": { "consumption": 2940, "peakDemand": 41, "gridLoad": 47 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (MWh)",
+            "values": [420, 425, 422, 430, 430, 428, 425]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 12700, "peakDemand": 44, "gridLoad": 48 },
+          "baseline": { "consumption": 12600, "peakDemand": 42, "gridLoad": 47 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (MWh)",
+            "values": [3150, 3180, 3200, 3170]
+          }
+        }
+      }
+    },
+    "pollution": {
+      "Hubballi": {
+        "Today": {
+          "kpi": { "aqi": 98, "pm25": 38, "pm10": 64, "no2": 32, "status": "Moderate" },
+          "baseline": { "aqi": 75, "pm25": 28, "pm10": 48, "no2": 24, "status": "Moderate" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Hubballi AQI Index",
+            "values": [62, 58, 88, 115, 108, 98]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "aqi": 82, "pm25": 31, "pm10": 54, "no2": 26, "status": "Moderate" },
+          "baseline": { "aqi": 75, "pm25": 28, "pm10": 48, "no2": 24, "status": "Moderate" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Hubballi AQI Index",
+            "values": [55, 52, 78, 96, 92, 82]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "aqi": 86, "pm25": 33, "pm10": 56, "no2": 28, "status": "Moderate" },
+          "baseline": { "aqi": 76, "pm25": 29, "pm10": 50, "no2": 25, "status": "Moderate" },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Average AQI",
+            "values": [74, 80, 85, 92, 98, 88, 85]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "aqi": 80, "pm25": 30, "pm10": 52, "no2": 26, "status": "Moderate" },
+          "baseline": { "aqi": 75, "pm25": 28, "pm10": 48, "no2": 24, "status": "Moderate" },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Average AQI",
+            "values": [72, 78, 84, 86]
+          }
+        }
+      },
+      "Vidyanagar": {
+        "Today": {
+          "kpi": { "aqi": 112, "pm25": 44, "pm10": 74, "no2": 41, "status": "Unhealthy for Sensitive Groups" },
+          "baseline": { "aqi": 88, "pm25": 34, "pm10": 58, "no2": 32, "status": "Moderate" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Vidyanagar AQI Index",
+            "values": [68, 64, 105, 128, 122, 112]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "aqi": 94, "pm25": 36, "pm10": 62, "no2": 34, "status": "Moderate" },
+          "baseline": { "aqi": 88, "pm25": 34, "pm10": 58, "no2": 32, "status": "Moderate" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Vidyanagar AQI Index",
+            "values": [60, 56, 88, 106, 102, 94]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "aqi": 96, "pm25": 37, "pm10": 64, "no2": 35, "status": "Moderate" },
+          "baseline": { "aqi": 89, "pm25": 34, "pm10": 59, "no2": 32, "status": "Moderate" },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Average AQI",
+            "values": [84, 90, 95, 102, 112, 98, 91]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "aqi": 90, "pm25": 35, "pm10": 60, "no2": 33, "status": "Moderate" },
+          "baseline": { "aqi": 88, "pm25": 34, "pm10": 58, "no2": 32, "status": "Moderate" },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Average AQI",
+            "values": [82, 88, 94, 96]
+          }
+        }
+      },
+      "Gokul Road": {
+        "Today": {
+          "kpi": { "aqi": 152, "pm25": 62, "pm10": 98, "no2": 48, "status": "Unhealthy" },
+          "baseline": { "aqi": 110, "pm25": 42, "pm10": 70, "no2": 35, "status": "Unhealthy for Sensitive Groups" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Gokul Road AQI Index",
+            "values": [92, 88, 135, 168, 162, 152]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "aqi": 124, "pm25": 48, "pm10": 79, "no2": 38, "status": "Unhealthy for Sensitive Groups" },
+          "baseline": { "aqi": 110, "pm25": 42, "pm10": 70, "no2": 35, "status": "Unhealthy for Sensitive Groups" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Gokul Road AQI Index",
+            "values": [80, 76, 112, 138, 132, 124]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "aqi": 128, "pm25": 50, "pm10": 82, "no2": 40, "status": "Unhealthy for Sensitive Groups" },
+          "baseline": { "aqi": 112, "pm25": 43, "pm10": 72, "no2": 36, "status": "Unhealthy for Sensitive Groups" },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Average AQI",
+            "values": [110, 118, 124, 132, 152, 134, 126]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "aqi": 118, "pm25": 46, "pm10": 76, "no2": 38, "status": "Unhealthy for Sensitive Groups" },
+          "baseline": { "aqi": 110, "pm25": 42, "pm10": 70, "no2": 35, "status": "Unhealthy for Sensitive Groups" },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Average AQI",
+            "values": [108, 115, 122, 127]
+          }
+        }
+      },
+      "Keshwapur": {
+        "Today": {
+          "kpi": { "aqi": 62, "pm25": 22, "pm10": 42, "no2": 19, "status": "Moderate" },
+          "baseline": { "aqi": 58, "pm25": 20, "pm10": 39, "no2": 18, "status": "Moderate" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Keshwapur AQI Index",
+            "values": [42, 38, 58, 72, 68, 62]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "aqi": 56, "pm25": 19, "pm10": 37, "no2": 17, "status": "Moderate" },
+          "baseline": { "aqi": 58, "pm25": 20, "pm10": 39, "no2": 18, "status": "Moderate" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Keshwapur AQI Index",
+            "values": [39, 36, 52, 64, 61, 56]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "aqi": 58, "pm25": 20, "pm10": 39, "no2": 18, "status": "Moderate" },
+          "baseline": { "aqi": 58, "pm25": 20, "pm10": 39, "no2": 18, "status": "Moderate" },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Average AQI",
+            "values": [54, 56, 58, 60, 62, 57, 59]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "aqi": 57, "pm25": 20, "pm10": 38, "no2": 18, "status": "Moderate" },
+          "baseline": { "aqi": 58, "pm25": 20, "pm10": 39, "no2": 18, "status": "Moderate" },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Average AQI",
+            "values": [55, 57, 58, 58]
+          }
+        }
+      },
+      "Unkal": {
+        "Today": {
+          "kpi": { "aqi": 38, "pm25": 12, "pm10": 24, "no2": 10, "status": "Good" },
+          "baseline": { "aqi": 36, "pm25": 11, "pm10": 22, "no2": 9, "status": "Good" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Unkal AQI Index",
+            "values": [25, 22, 35, 44, 42, 38]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "aqi": 34, "pm25": 10, "pm10": 21, "no2": 9, "status": "Good" },
+          "baseline": { "aqi": 36, "pm25": 11, "pm10": 22, "no2": 9, "status": "Good" },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Unkal AQI Index",
+            "values": [23, 20, 31, 39, 37, 34]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "aqi": 35, "pm25": 11, "pm10": 22, "no2": 9, "status": "Good" },
+          "baseline": { "aqi": 36, "pm25": 11, "pm10": 22, "no2": 9, "status": "Good" },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Average AQI",
+            "values": [33, 34, 35, 36, 38, 35, 36]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "aqi": 35, "pm25": 11, "pm10": 22, "no2": 9, "status": "Good" },
+          "baseline": { "aqi": 36, "pm25": 11, "pm10": 22, "no2": 9, "status": "Good" },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Average AQI",
+            "values": [34, 35, 36, 35]
+          }
+        }
+      }
+    },
+    "water": {
+      "Hubballi": {
+        "Today": {
+          "kpi": { "consumption": 1420, "flowRate": 165, "pressure": 52, "reservoirLevel": 78 },
+          "baseline": { "consumption": 1380, "flowRate": 160, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [90, 80, 185, 160, 175, 165]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 1390, "flowRate": 161, "pressure": 54, "reservoirLevel": 79 },
+          "baseline": { "consumption": 1380, "flowRate": 160, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [88, 78, 180, 155, 170, 161]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 9780, "flowRate": 162, "pressure": 53, "reservoirLevel": 78 },
+          "baseline": { "consumption": 9660, "flowRate": 160, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (kL)",
+            "values": [1380, 1390, 1400, 1410, 1420, 1390, 1390]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 41800, "flowRate": 161, "pressure": 54, "reservoirLevel": 79 },
+          "baseline": { "consumption": 41400, "flowRate": 160, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (kL)",
+            "values": [10300, 10450, 10550, 10500]
+          }
+        }
+      },
+      "Vidyanagar": {
+        "Today": {
+          "kpi": { "consumption": 380, "flowRate": 44, "pressure": 50, "reservoirLevel": 78 },
+          "baseline": { "consumption": 365, "flowRate": 42, "pressure": 52, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [22, 20, 48, 46, 45, 44]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 370, "flowRate": 43, "pressure": 51, "reservoirLevel": 79 },
+          "baseline": { "consumption": 365, "flowRate": 42, "pressure": 52, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [21, 19, 47, 44, 43, 43]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 2590, "flowRate": 43, "pressure": 51, "reservoirLevel": 78 },
+          "baseline": { "consumption": 2550, "flowRate": 42, "pressure": 52, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (kL)",
+            "values": [365, 368, 370, 375, 380, 366, 366]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 11100, "flowRate": 43, "pressure": 51, "reservoirLevel": 79 },
+          "baseline": { "consumption": 10950, "flowRate": 42, "pressure": 52, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (kL)",
+            "values": [2720, 2760, 2810, 2810]
+          }
+        }
+      },
+      "Gokul Road": {
+        "Today": {
+          "kpi": { "consumption": 490, "flowRate": 58, "pressure": 54, "reservoirLevel": 78 },
+          "baseline": { "consumption": 470, "flowRate": 55, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [32, 28, 62, 59, 60, 58]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 475, "flowRate": 56, "pressure": 54, "reservoirLevel": 79 },
+          "baseline": { "consumption": 470, "flowRate": 55, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [30, 27, 60, 57, 58, 56]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 3340, "flowRate": 56, "pressure": 54, "reservoirLevel": 78 },
+          "baseline": { "consumption": 3290, "flowRate": 55, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (kL)",
+            "values": [470, 472, 475, 480, 490, 476, 477]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 14300, "flowRate": 56, "pressure": 54, "reservoirLevel": 79 },
+          "baseline": { "consumption": 14100, "flowRate": 55, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (kL)",
+            "values": [3510, 3560, 3620, 3610]
+          }
+        }
+      },
+      "Keshwapur": {
+        "Today": {
+          "kpi": { "consumption": 390, "flowRate": 45, "pressure": 41, "reservoirLevel": 78 },
+          "baseline": { "consumption": 380, "flowRate": 44, "pressure": 52, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [25, 22, 54, 42, 48, 45]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 385, "flowRate": 44, "pressure": 50, "reservoirLevel": 79 },
+          "baseline": { "consumption": 380, "flowRate": 44, "pressure": 52, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [24, 21, 52, 41, 46, 44]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 2690, "flowRate": 44, "pressure": 48, "reservoirLevel": 78 },
+          "baseline": { "consumption": 2660, "flowRate": 44, "pressure": 52, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (kL)",
+            "values": [380, 382, 384, 386, 390, 384, 384]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 11500, "flowRate": 44, "pressure": 50, "reservoirLevel": 79 },
+          "baseline": { "consumption": 11400, "flowRate": 44, "pressure": 52, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (kL)",
+            "values": [2830, 2870, 2910, 2890]
+          }
+        }
+      },
+      "Unkal": {
+        "Today": {
+          "kpi": { "consumption": 160, "flowRate": 18, "pressure": 55, "reservoirLevel": 78 },
+          "baseline": { "consumption": 165, "flowRate": 19, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [11, 10, 21, 18, 22, 18]
+          }
+        },
+        "Yesterday": {
+          "kpi": { "consumption": 160, "flowRate": 18, "pressure": 55, "reservoirLevel": 79 },
+          "baseline": { "consumption": 165, "flowRate": 19, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00"],
+            "seriesName": "Water Flow (L/s)",
+            "values": [10, 9, 20, 17, 21, 18]
+          }
+        },
+        "Last 7 Days": {
+          "kpi": { "consumption": 1160, "flowRate": 18, "pressure": 55, "reservoirLevel": 78 },
+          "baseline": { "consumption": 1155, "flowRate": 19, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            "seriesName": "Daily Consumption (kL)",
+            "values": [165, 166, 166, 167, 160, 168, 168]
+          }
+        },
+        "Last 30 Days": {
+          "kpi": { "consumption": 4900, "flowRate": 18, "pressure": 55, "reservoirLevel": 79 },
+          "baseline": { "consumption": 4950, "flowRate": 19, "pressure": 55, "reservoirLevel": 80 },
+          "chart": {
+            "labels": ["Week 1", "Week 2", "Week 3", "Week 4"],
+            "seriesName": "Weekly Consumption (kL)",
+            "values": [1210, 1230, 1240, 1220]
+          }
+        }
+      }
+    }
+  }
+}
