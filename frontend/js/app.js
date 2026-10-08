@@ -24,10 +24,16 @@ const state = {
   isLoading: false
 };
 
-// Automatically use the current origin if hosted on Express (port 5000), otherwise fallback to localhost:5000
-const API_BASE = window.location.origin.includes('5000') 
-  ? window.location.origin 
-  : 'http://localhost:5000';
+// Use relative API URLs ('') when deployed or served by Express at localhost:5000.
+// Only fallback to 'http://localhost:5000' if running on standalone local frontend (file:// or localhost/127.0.0.1 on another port).
+const isStandaloneLocalDev = 
+  window.location.protocol === 'file:' || 
+  ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && 
+   window.location.port !== '5000' && 
+   window.location.port !== '');
+
+const API_BASE = isStandaloneLocalDev ? 'http://localhost:5000' : '';
+
 
 // Global Chart instance
 let mainChartInstance = null;
