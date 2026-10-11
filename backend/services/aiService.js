@@ -286,7 +286,7 @@ async function askGemini(userMessage, context, history = []) {
     return generateDeterministicMockResponse(userMessage.trim(), context, history);
   }
 
-  const modelName = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+  const modelName = process.env.GEMINI_MODEL || 'gemini-flash-latest';
   const contextBlock = formatContextForPrompt(context);
   const historyBlock = formatConversationHistory(history);
   const evidenceBlock = collectAnalyticalEvidence(userMessage.trim(), context, history);
