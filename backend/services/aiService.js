@@ -321,10 +321,25 @@ async function askGemini(userMessage, context, history = []) {
   } catch (error) {
     console.error('[aiService Error]:', error.message);
 
-    if (error.message.includes('API_KEY_INVALID') || error.message.includes('401') || error.message.includes('403')) {
+    const status = error.status || error.code || null;
+    const errorMsg = error.message || '';
+    const upperMsg = errorMsg.toUpperCase();
+
+    if (status === 401 || status === 403 || upperMsg.includes('API_KEY_INVALID') || upperMsg.includes('401') || upperMsg.includes('403')) {
       throw new Error('Invalid Gemini API key. Please check your GEMINI_API_KEY in backend/.env.');
     }
-    if (error.message.includes('NOT_FOUND') || error.message.includes('model')) {
+    if (
+      status === 429 ||
+      status === 503 ||
+      upperMsg.includes('429') ||
+      upperMsg.includes('503') ||
+      upperMsg.includes('RESOURCE_EXHAUSTED') ||
+      upperMsg.includes('OVERLOADED') ||
+      upperMsg.includes('RATE_LIMIT')
+    ) {
+      throw new Error('AI service is temporarily busy or rate-limited. Please retry in a few moments.');
+    }
+    if (status === 404 || upperMsg.includes('NOT_FOUND') || upperMsg.includes('404')) {
       throw new Error(`The requested Gemini model (${modelName}) was not found or is unavailable.`);
     }
 
